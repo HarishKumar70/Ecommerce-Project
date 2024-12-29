@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.navbar-nav{
+    margin-left: 150px;
+}
+
+.navbar-nav>li{
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.icons>div{
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    margin-left: 20px;
+}
+
+.icons>div>span,p{
+    padding-inline: 8px;
+}
