@@ -1,0 +1,23 @@
+section{
+    width: 87vw;
+    margin: auto;
+    margin-block: 50px;
+}
+
+.products>div{
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    text-align: center;
+    margin-block: 30px;
+}
+
+.products>div>img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.products>div>h3{
+    padding-block:25px;
+}

@@ -5,6 +5,13 @@
 }
 
 /* Header */
+header{
+    padding-inline: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .navbar-nav{
     margin-left: 150px;
 }
@@ -23,6 +30,11 @@
     border-radius: 8px;
     padding: 8px;
     margin-left: 20px;
+}
+
+.icons>div:hover{
+    color: white;
+    background-color: black;
 }
 
 .icons>div>span,p{
