@@ -56,9 +56,24 @@
         </nav>
     </header>
 
+    <!-- Main Section -->
+    <main>
+        <h1 class="text-center mt-5">Contact Us</h1>
+        <hr>
+        <form class="d-flex flex-column w-25 m-auto mt-5">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control mb-3" name="uname" id="name" placeholder="Enter your name" required>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control mb-3" name="email" id="email" placeholder="name@example.com" required>
+            <label for="mssg" class="form-label">Message</label>
+            <textarea name="mssg" class="form-control mb-3" id="mssg" cols="50" rows="5" placeholder="Enter your message" required></textarea>
+            <div class="text-center"><button class="text-white bg-secondary px-4 py-2 my-2 border border-secondary rounded-3" type="submit">Send</button></div>
+        </form>
+    </main>
+
     <!-- Footer -->
     <footer class="text-center my-5">
-        <p class="fs-4">Made with ❤️ by <span class="text-decoration-underline">Harish Kumar</span></p>
+        <p class="fs-5">Made with ❤️ by <span class="text-decoration-underline">Harish Kumar</span></p>
     </footer>
 </body>
 </html>
