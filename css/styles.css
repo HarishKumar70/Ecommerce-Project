@@ -17,26 +17,37 @@ header{
 }
 
 .navbar-nav>li{
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 20px;
 }
 
-.icons>div{
+.icons>a{
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-left: 20px;
+}
+
+.icons>a>div{
     height: 50px;
     font-size: 20px;
     display: flex;
-    justify-content: space-evenly;
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 8px;
-    margin-left: 20px;
+    padding-top:9px;
+    padding-inline: 18px;
 }
 
-.icons>div:hover{
+.icons>a:hover{
     color: white;
     background-color: black;
 }
 
 .icons>div>span,p{
-    padding-inline: 8px;
+    padding-left: 15px;
+}
+
+/* main section */
+main{
+    width: 87vw;
+    margin: auto;
 }
