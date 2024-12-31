@@ -42,7 +42,7 @@ header{
     background-color: black;
 }
 
-.icons>div>span,p{
+.icons>a>div>p{
     padding-left: 15px;
 }
 
