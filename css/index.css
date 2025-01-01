@@ -1,0 +1,13 @@
+/* Banner Image */
+.banner{
+    height: 500px;
+    background-image: url('../assets/images/main.png.jpg');
+    background-size: 100% 100%;
+    margin: 30px;
+    padding: 50px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 29px;
+    color: white;
+    align-content: center;
+}
