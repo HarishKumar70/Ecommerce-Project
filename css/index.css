@@ -11,3 +11,78 @@
     color: white;
     align-content: center;
 }
+
+/* main section */
+main{
+    text-align: center;
+}
+
+#buttons>button{
+    background-color: white;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-inline: 5px;
+    margin-block: 50px;
+}
+
+/* Products */
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contCard{
+    width: 380px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    text-align: center;
+    margin: 25px;
+}
+
+.contCard img{
+    width: 300px;
+    height: 350px;
+    padding-block:20px;
+}
+
+.contCard h4{
+    padding-inline: 105px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.description{
+    font-size: 16px;
+    padding-inline: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.price{
+    font-size: 20px;
+    margin-block:10px !important;
+    color: gray;
+}
+
+.contButtons button{
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding-block: 5px;
+    padding-inline: 10px;
+    margin-block: 15px;
+    margin-inline: 5px;
+}
+
+hr{
+    margin-block: 0px !important;
+}
