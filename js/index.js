@@ -2,9 +2,11 @@ let div=document.getElementById('buttons');
 let container=document.getElementById('container');
 
 // Global Event Listener for all butons
-div.addEventListener('click',function(event){
-    fetchCategoryData(event.target.textContent);
-})
+if(div){
+    div.addEventListener('click',function(event){
+        fetchCategoryData(event.target.textContent);
+    })
+}
 
 // Function to display data in the webpage
 function displayData(arr){
@@ -52,3 +54,19 @@ async function fetchCategoryData(clickedButton){
     })
     displayData(filteredData);
 }
+
+// Add to Cart
+let prodContainer=document.getElementById('container');
+let cartQuant=document.getElementById('cart-quantity');
+let count=localStorage.getItem('cartcount') || 0; //If not present in ls then it should be by default 0 otherwise it returns null
+
+if(prodContainer){
+    prodContainer.addEventListener('click',function(event){
+        if(event.target.textContent=='Add to Cart'){
+            count++;
+            cartQuant.textContent=count; //Updating everytime when user adds product
+            localStorage.setItem('cartcount',count);
+        }
+    })
+}
+cartQuant.textContent=count; //Updating when the page reloads
