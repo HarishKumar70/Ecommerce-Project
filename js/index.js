@@ -1,5 +1,6 @@
 let div=document.getElementById('buttons');
 let container=document.getElementById('container');
+let products=[];
 
 // Global Event Listener for all butons
 if(div){
@@ -23,7 +24,7 @@ function displayData(arr){
                 <hr>
                 <div class='contButtons'>
                     <button>Details</button>
-                    <button>Add to Cart</button>
+                    <button id=${obj.id}>Add to Cart</button>
                 </div>
             </div>
             `)
@@ -35,6 +36,7 @@ function displayData(arr){
 async function fetchAllData(){
     let response=await fetch('https://fakestoreapi.com/products');
     let data=await response.json();
+    products=data;
     displayData(data);
 }
 fetchAllData();
@@ -66,7 +68,18 @@ if(prodContainer){
             count++;
             cartQuant.textContent=count; //Updating everytime when user adds product
             localStorage.setItem('cartcount',count);
+            
+            //Adding that selected product to cart array
+            let cart=JSON.parse(localStorage.getItem('cart')) || [];
+            let product=products.find(function(obj){
+                if(obj.id==event.target.id){
+                    return true;
+                }
+            })
+            cart.push(product);
+            localStorage.setItem(cart,JSON.stringify('cart'));
         }
     })
 }
 cartQuant.textContent=count; //Updating when the page reloads
+
