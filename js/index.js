@@ -1,6 +1,5 @@
 let div=document.getElementById('buttons');
 let container=document.getElementById('container');
-let products=[];
 
 // Global Event Listener for all butons
 if(div){
@@ -13,7 +12,7 @@ if(div){
 function displayData(arr){
     let contData=arr.map(function(obj){
         return(`
-            <div class='contCard'>
+            <div class='contCard' id=${obj.id}>
                 <img src='${obj.image}' alt='${obj.title}'>
                 <div class='content'>
                     <h4>${obj.title}</h4>
@@ -22,21 +21,21 @@ function displayData(arr){
                 <hr>
                 <p class='price'>$ ${obj.price}</p>
                 <hr>
-                <div class='contButtons'>
-                    <button>Details</button>
-                    <button id=${obj.id}>Add to Cart</button>
-                </div>
+                <button class='contButtons'>Details</button>
+                <button id=${obj.id} class='contButtons'>Add to Cart</button>
             </div>
             `)
     })
-    container.innerHTML=contData.join(' ');
+    if(container){
+        container.innerHTML=contData.join(' ');
+    }
 }
 
 // Fetching All Data
 async function fetchAllData(){
     let response=await fetch('https://fakestoreapi.com/products');
     let data=await response.json();
-    products=data;
+    localStorage.setItem('products',JSON.stringify(data));
     displayData(data);
 }
 fetchAllData();
@@ -69,15 +68,19 @@ if(prodContainer){
             cartQuant.textContent=count; //Updating everytime when user adds product
             localStorage.setItem('cartcount',count);
             
-            //Adding that selected product to cart array
+            //Adding that selected product id and product quantity to cart array
             let cart=JSON.parse(localStorage.getItem('cart')) || [];
-            let product=products.find(function(obj){
-                if(obj.id==event.target.id){
-                    return true;
-                }
-            })
-            cart.push(product);
-            localStorage.setItem(cart,JSON.stringify('cart'));
+            card_id=event.target.parentNode.id;
+
+            let index=cart.findIndex((obj)=>obj.product_id==card_id);
+            if(cart.length==0){
+                cart.push({'product_id':card_id,'quantity':1});
+            }else if(index<0){
+                cart.push({'product_id':card_id,'quantity':1});
+            }else{ 
+                cart[index].quantity+=1;
+            }
+            localStorage.setItem('cart',JSON.stringify(cart));
         }
     })
 }

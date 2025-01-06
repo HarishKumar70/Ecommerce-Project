@@ -72,7 +72,7 @@ main{
     color: gray;
 }
 
-.contButtons button{
+.contButtons{
     color: white;
     background-color: black;
     border: 1px solid transparent;

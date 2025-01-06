@@ -66,10 +66,35 @@
     <main>
         <h1 class="text-center mt-5">Cart</h1>
         <hr>
-        <div class="cart-container text-center">
+        <div class="text-center" id="cart-default-container">
             <p class="display-4 pb-2">Your Cart is Empty</p>
             <a href="./index.html"><button class="bg-white py-2 px-3 rounded-2"><span class="pe-2"><i class="fa-solid fa-arrow-left"></i></span>Continue Shopping</button></a>
         </div>
+        <section id="cart-container" class="d-flex">
+            <div class="border me-4 rounded-2">
+                <h4 class="border-bottom p-3">Item List</h4>
+                <div id="item-list"></div>
+            </div>
+            <div class="border rounded-2">
+                <h4 class="border-bottom p-3">Order Summary</h4>
+                <div id="order-sum" class="p-4">
+                    <div>
+                        <p>Products (<span id="prod-quant">0</span>)</p>
+                        <p id="amount">0</p>
+                    </div>
+                    <div>
+                        <p>Shipping</p>
+                        <p>$30</p>
+                    </div>
+                    <div class="fw-bold">
+                        <p>Total amount</p>
+                        <p id="total-amount">0</p>
+                    </div>
+                    <button class="checkout text-white bg-black py-2 mt-3 rounded-3 fs-5">Go to checkout</button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -78,5 +103,6 @@
     </footer>
     
     <script src="../js/index.js"></script>
+    <script src="../js/cart.js"></script>
 </body>
 </html>
