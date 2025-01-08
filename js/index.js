@@ -37,22 +37,34 @@ async function fetchAllData(){
     let data=await response.json();
     localStorage.setItem('products',JSON.stringify(data));
     displayData(data);
+    return data;
 }
-fetchAllData();
+
+//Checking in Local Storage if data already exits
+function checkData(){
+    let storedData=localStorage.getItem('products');
+    if(!storedData){
+        fetchAllData();
+    }else{
+        displayData(JSON.parse(storedData));
+    }
+}
+checkData();
 
 // Fetching Certain Category Data
 async function fetchCategoryData(clickedButton){
-    let response=await fetch('https://fakestoreapi.com/products');
-    let data=await response.json();
+    let data=JSON.parse(localStorage.getItem('products'));
+    let filteredData;
+    
     if(clickedButton=='All'){
-        fetchAllData();
-        return;
+        filteredData=data;
+    }else{
+        filteredData=data.filter(function(obj){ 
+            if(obj.category==clickedButton.toLowerCase()){
+                return true;
+            }
+        })
     }
-    let filteredData=data.filter(function(obj){ 
-        if(obj.category==clickedButton.toLowerCase()){
-            return true;
-        }
-    })
     displayData(filteredData);
 }
 

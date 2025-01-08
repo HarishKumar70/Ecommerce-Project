@@ -8,7 +8,8 @@ let cartCount=JSON.parse(localStorage.getItem('cartcount'));
 document.getElementById('prod-quant').textContent=cartCount;
 let amount = Number(document.getElementById('amount').textContent);
 
-let cartArr = JSON.parse(localStorage.getItem('cart'));
+let cartArr = JSON.parse(localStorage.getItem('cart'));.3
+
 let products = JSON.parse(localStorage.getItem('products'));
 
 //displaying containers
@@ -23,6 +24,7 @@ function updateContainers(){
 }
 updateContainers();
 
+//displaying order summary
 function displayOrderSummary(){
     let cartData=cartArr.map(function(obj){
         //we need to get the details of the product in products array by using product_id 
@@ -36,8 +38,9 @@ function displayOrderSummary(){
 }
 displayOrderSummary();
 
-//map the array
+//displaying data in cart
 function displayCartData(){
+    //map the array
     let cartData=cartArr.map(function(obj){
     //we need to get the details of the product in products array by using product_id 
     let index=products.findIndex((data)=>data.id==obj.product_id);
@@ -61,6 +64,7 @@ function displayCartData(){
 }
 displayCartData();
 
+//Global EL for itemList container 
 itemList.addEventListener('click',function(event){
     let type=event.target.textContent;
     let ele=event.target.parentNode.parentNode.parentNode;
@@ -83,6 +87,7 @@ itemList.addEventListener('click',function(event){
     updateCartCount(cartCount);
 })
 
+//To Update Order Summary
 function updateOrderSummary(cart){ 
     let sum=0;
     cart.map(function(obj){
@@ -95,6 +100,7 @@ function updateOrderSummary(cart){
     document.getElementById('total-amount').textContent=`$${Math.round(sum+30)}`;
 }
 
+//To update Cart count number
 function updateCartCount(count){
     localStorage.setItem('cartcount',JSON.stringify(count));
     document.getElementById('cart-quantity').textContent=count;
